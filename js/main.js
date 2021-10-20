@@ -92,13 +92,16 @@ function tomarPedido() {
         }
         else if (comida == 5) {
             let entradaComida = prompt ("Ingresar otra comida");
-            let entradaPrecioComida = prompt ("ingresa precio de otra comida");
+            let entradaPrecioComida;
+            while (!entradaPrecioComida || entradaPrecioComida == 0 || entradaPrecioComida < 0) {
+                entradaPrecioComida = parseInt(prompt ("ingresa precio de otra comida"));
+            }
             pedidoComida.push({id: (comida), comida:(entradaComida), precioComida: (entradaPrecioComida)});
             comida = pedidoComida[4].comida;
             precioComida = pedidoComida[4].precioComida;
         }
         else {
-            return new tomarPedido ;
+            comida = 0;
         }
     }
     
@@ -134,13 +137,16 @@ function tomarPedido() {
         }
             else if (bebida == 5) {
         let entradaBebida = prompt ("Ingresar otra bebida");
-        let entradaPrecioBebida = prompt ("Ingresa precio de otra bebida");
+        let entradaPrecioBebida;
+        while (!entradaPrecioBebida || entradaPrecioBebida == 0 || entradaPrecioBebida < 0) {
+            entradaPrecioBebida = parseInt(prompt ("Ingresa precio de otra bebida"));
+        }
         pedidoBebida.push({id: (bebida), bebida:(entradaBebida), precioBebida: (entradaPrecioBebida)});
         bebida = pedidoBebida[4].bebida;
         precioBebida = pedidoBebida[4].precioBebida;
         }
         else {
-            return new tomarPedido;
+            bebida = 0;
         }
     }
 
