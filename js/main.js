@@ -39,7 +39,9 @@ class Pedido {
             this.descuento = this.cuenta * -0.1;
             this.total = this.cuenta + this.descuento;
         }
-        return this.total;
+        else{
+            this.total = this.cuenta;
+        }
     }
     
     darPropina() {
