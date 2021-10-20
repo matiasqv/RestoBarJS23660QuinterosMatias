@@ -43,11 +43,12 @@
 }
 
 .menu__link:hover {
-    background: #de423a;
+    // background: #de423a;
+    background: $color3;
 }
 
 .menu__link--select {
-    background: #de423a;
+    background: $color3;
 }
 
 .mostrar {
