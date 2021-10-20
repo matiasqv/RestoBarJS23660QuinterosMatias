@@ -70,7 +70,7 @@ function tomarPedido() {
 
     while(!comida || comida == 0 || comida > 5 || comida < 0) {
         comida = parseInt(prompt(
-            "¿Qué va a comer? Introduce el número junto a la opción:\n 1: Pancho($100),\n 2: Hamburguesa($350),\n 3: Picada($700),\n 4: Tostados($200),\n 5: Otro comida"));
+            "¿Qué va a comer? Introduce el número junto a la opción:\n 1: Pancho ($100),\n 2: Hamburguesa ($350),\n 3: Picada ($700),\n 4: Tostados ($200),\n 5: Otra comida"));
             
         if (comida == 1) {
             comida = pedidoComida[0].comida;
@@ -112,7 +112,7 @@ function tomarPedido() {
     ]
 
     while(!bebida || bebida == 0 || bebida > 5 || bebida < 0) {
-        bebida = parseInt(prompt("¿Qué le gustaría beber? Introduce el número junto a la opción:\n 1: Gaseosa($150),\n 2: Agua($100),\n 3: Jugo($200),\n 4: Agua gasificada($120),\n 5: Otro bebida"));
+        bebida = parseInt(prompt("¿Qué le gustaría beber? Introduce el número junto a la opción:\n 1: Gaseosa ($150),\n 2: Agua ($100),\n 3: Jugo ($200),\n 4: Agua gasificada ($120),\n 5: Otra bebida"));
     
         if (bebida == 1) {
             bebida = pedidoBebida[0].bebida;
