@@ -1,0 +1,140 @@
+
+.group {
+    .container {
+        padding: 20px;
+        .column {
+            position: relative;
+            display: block;
+            text-align: center;
+            .gallery--img {
+                display: block;
+                width: 80%;
+                height: 70%;
+                object-fit: cover;
+            }
+            h3 {
+                position: relative;
+                display: block;
+                text-align: center;
+                padding: 0.5em;
+                color: black;
+                font-size: 3em;
+                font-weight: bold;
+            }
+            p{
+                position: relative;
+                display: block;
+                text-align: center;
+                padding: 0.5em;
+                color: black;
+                font-size: 1.5em;
+            }
+            .pedido{
+                position: relative;
+                display: inline-block;
+                text-align: center;
+                padding: 0.5em;
+                margin: 0.2em;
+                color: black;
+                font-size: 2em;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+
+@media screen and ( min-width: 480px) {
+    .group {
+        .container {
+            padding: 15px;
+            .column {
+                position: relative;
+                display: inline-block;
+                width: 49%;
+                .gallery--img {
+                    display: block;
+                    width: 80%;
+                    height: 70%;
+                    object-fit: cover;
+                }
+                h3 {
+                    position: relative;
+                    display: block;
+                    text-align: center;
+                    padding: 0.5em;
+                    color: black;
+                    font-size: 3em;
+                    font-weight: bold;
+                }
+                p{
+                    position: relative;
+                    display: block;
+                    text-align: center;
+                    padding: 0.5em;
+                    color: rgb(24, 1, 129);
+                    font-size: 1.5em;
+                }
+                .pedido{
+                    position: relative;
+                    display: inline-block;
+                    text-align: center;
+                    padding: 0.5em;
+                    margin: 0.2em;
+                    color: black;
+                    font-size: 3em;
+                    font-weight: bold;
+                }
+            }
+        }
+    }    
+}
+
+
+@media screen and ( min-width: 980px) {
+    .group {
+        .container {
+            .column {
+                .gallery--img {
+                    display: block;
+                    width: 80%;
+                    height: 70%;
+                    object-fit: cover;
+                }
+                h3 {
+                    position: relative;
+                    display: block;
+                    text-align: center;
+                    padding: 0.5em;
+                    color: black;
+                    font-size: 4em;
+                    font-weight: bold;
+                    // top: -120px;
+                }
+                p{
+                    position: relative;
+                    display: block;
+                    text-align: center;
+                    padding: 0.5em;
+                    color: black;
+                    font-size: 2em;
+                    // top: -60px;
+                }
+                .pedido{
+                    position: relative;
+                    display: inline-block;
+                    text-align: center;
+                    padding: 0.5em;
+                    margin: 0.2em;
+                    color: black;
+                    font-size: 4em;
+                    font-weight: bold;
+                }
+            }
+        }
+    }    
+}
+
+
+
+
