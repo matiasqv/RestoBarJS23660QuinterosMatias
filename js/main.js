@@ -1,9 +1,7 @@
 
+// Clase 08 Desafío: Interactuar con HTML
+
 function correr() {
-
-    // Clase 06 Desafío: Incorporar Arrays
-
-
 
     let comida = 0;
     let cantidadComida = 0;
@@ -60,7 +58,6 @@ function correr() {
             }
         }
     }
-
 
     function tomarPedido() {
 
@@ -158,37 +155,18 @@ function correr() {
         return new Pedido(comida, precioComida, cantidadComida, bebida, precioBebida, cantidadBebida);
     }
 
-
-    // alert("Ingrese su pedido");
-
     const pedido = new tomarPedido();
     pedido.calcularCuenta();
     pedido.calcularIva();
     pedido.aplicarDescuento();
     pedido.darPropina();
 
-    //     alert(`
-    //     Detalle de la cuenta:
-    //     - ${pedido.cantidadComida} ${pedido.comida} x $${pedido.precioComida} = $${pedido.cantidadComida * pedido.precioComida}
-    //     - ${pedido.cantidadBebida} ${pedido.bebida} x $${pedido.precioBebida} = $${pedido.cantidadBebida * pedido.precioBebida}
-
-    //     SubTotal = $${pedido.cuenta} (iva = $${pedido.iva})
-    //     -Descuento = $${pedido.descuento}
-    //     -Propina = $${pedido.propina} (% = ${pedido.porcentajePropina})
-    //     ==========================
-    //     Total = $${pedido.total}
-    // `);
-
-
-
-
-
 
     let contenedor = document.createElement("div");
     contenedor.innerHTML = `<h3>Detalle de la cuenta:</h3>
 <p>- ${pedido.cantidadComida} ${pedido.comida} x $${pedido.precioComida} = $${pedido.cantidadComida * pedido.precioComida}</p>
 <p>- ${pedido.cantidadBebida} ${pedido.bebida} x $${pedido.precioBebida} = $${pedido.cantidadBebida * pedido.precioBebida}</p>
-<p></p>
+<p>---------------------------</p>
 <p>SubTotal = $${pedido.cuenta} (iva = $${pedido.iva})</p>
 <p>-Descuento = $${pedido.descuento}</p>
 <p>-Propina = $${pedido.propina} (% = ${pedido.porcentajePropina})</p>
@@ -197,8 +175,9 @@ function correr() {
 <h3><b>Total = $${pedido.total}</b></h3>`;
     cuenta.appendChild(contenedor);
 
-
 };
+
+
 function eliminar() {
     cuenta.innerHTML = "";
 }
