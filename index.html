@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport"
-        content="width=device-width, uses-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+        content="width=device-width,   maximum-scale=3.0, minimum-scale=1.0"> <!-- initial-scale=1.0, -->
     <link rel="stylesheet" href="css/styles.css">
     <title>RestoBarJS23660QuinterosMatias</title>
 </head>
@@ -33,10 +33,13 @@
     </nav>
 
     <section class="group">
-        <div class="container container--flex">
 
+        <div class="container container--flex">
             <div class="column column--50">
+                <!-- Aqui se agrega la cuenta por JS -->
+                <div id= "cuenta" class="menu__item menu__link" ></div>
                 <input type="button" class="menu__item menu__link pedido" value="Realice su pedido" onclick="correr ()">
+                <input type="button" class="menu__item menu__link " value="Eliminar" onclick="eliminar ()">
                 <h3>¿Quiénes somos?</h3>
                 <p>RestoBar Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat in, unde maiores qui
                     incidunt delectus beatae, voluptatum sit ipsa architecto enim perferendis temporibus eum eos
@@ -65,7 +68,8 @@
     <footer class="main-footer" id="main-footer">
         <div class="container container--flex">
             <div class="column column--33" id="column__logo">
-                <img class="img_Logo_Final" src="multimedia/Logo_Final.jpg" alt="">
+                <!-- Aqui va una imagen de un logo -->
+                <!-- <img class="img_Logo_Final" src="multimedia/Logo_Final.jpg" alt=""> -->
             </div>
             <div class="column column--33 ">
                 <h3 class="column__title">INFORMACION DE CONTACTO</h3>

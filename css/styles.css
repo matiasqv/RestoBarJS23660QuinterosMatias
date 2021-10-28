@@ -175,6 +175,11 @@ html body div ul a {
   text-align: center;
 }
 
+.group .container .column #cuenta {
+  border: solid 2px black;
+  background-color: #c1bc28;
+}
+
 .group .container .column .gallery--img {
   display: block;
   width: 80%;

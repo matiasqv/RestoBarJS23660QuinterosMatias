@@ -6,6 +6,10 @@
             position: relative;
             display: block;
             text-align: center;
+            #cuenta {
+                border: solid 2px black;
+                background-color: $color5;
+            }
             .gallery--img {
                 display: block;
                 width: 80%;
