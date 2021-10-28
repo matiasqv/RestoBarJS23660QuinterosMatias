@@ -162,23 +162,31 @@ function correr() {
     pedido.darPropina();
 
 
+
+
     let contenedor = document.createElement("div");
     contenedor.innerHTML = `<h3>Detalle de la cuenta:</h3>
 <p>- ${pedido.cantidadComida} ${pedido.comida} x $${pedido.precioComida} = $${pedido.cantidadComida * pedido.precioComida}</p>
 <p>- ${pedido.cantidadBebida} ${pedido.bebida} x $${pedido.precioBebida} = $${pedido.cantidadBebida * pedido.precioBebida}</p>
 <p>---------------------------</p>
 <p>SubTotal = $${pedido.cuenta} (iva = $${pedido.iva})</p>
-<p>-Descuento = $${pedido.descuento}</p>
-<p>-Propina = $${pedido.propina} (% = ${pedido.porcentajePropina})</p>
+<p>- Descuento = $${pedido.descuento}</p>
+<p>- Propina = $${pedido.propina} (% = ${pedido.porcentajePropina})</p>
 <p>==========================</p>
 
-<h3><b>Total = $${pedido.total}</b></h3>`;
+<h3><b>Total = $${pedido.total}</b></h3>
+
+<input type="button" class="  eliminar" value="Eliminar" onclick="eliminar()">`
     cuenta.appendChild(contenedor);
 
 };
-
 
 function eliminar() {
     cuenta.innerHTML = "";
 }
 
+// function otroPedido() {
+//     eliminar();
+//     correr();
+// }
+// <input type="button" class="menu__item menu__link pedido" value="Realice su pedido" onclick=" otroPedido() "></input>
