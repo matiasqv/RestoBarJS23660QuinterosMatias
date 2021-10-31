@@ -1,5 +1,64 @@
 
-// Clase 08 Desafío: Interactuar con HTML
+// Clase 09 Desafío: Interactuar con HTML
+
+let contenedor = document.createElement("hacerPedido");
+contenedor.innerHTML = `<button id="btn-pedido" class="menu__item menu__link pedido">Realice su pedido</button>`
+hacerPedido.appendChild(contenedor);
+// COMO ELIMINAR EL BOTON DE PEDIDO?
+hacerPedido.addEventListener("click", respuestaClick2)
+function respuestaClick2() {
+    hacerPedido.parentNode.removeChild(hacerPedido);
+}
+
+// Click del boton pedido
+let boton = document.getElementById("btn-pedido");
+boton.addEventListener("click", respuestaClick);
+function respuestaClick() {
+    console.log("Respuesta evento");
+    let miFormulario = document.createElement("formulario");
+    miFormulario.innerHTML = `<form id="formulario">
+                                <div>
+                                "¿Qué va a comer? Introduce el número junto a la opción:<br>
+                                1: Pancho ($100)<br>
+                                2: Hamburguesa ($350)<br>
+                                3: Picada ($700)<br>
+                                4: Tostados ($200)<br>
+                                5: Otra comida"
+                                </div>
+                                <input type="text">
+                                <input type="text">
+                                <input type="submit" value="Enviar">
+                            </form>`
+    pedido.appendChild(miFormulario);
+
+    miFormulario.addEventListener("submit", validarFormulario);
+    function validarFormulario(e) {
+        //Cancelamos el comportamiento del evento
+        e.preventDefault();
+        //Obtenemos el elemento desde el cual se disparó el evento
+        let formulario = e.target
+        //Obtengo el valor del primero hijo <input type="text">
+        console.log(formulario.children[0].value);
+        //Obtengo el valor del segundo hijo <input type="number">
+        console.log(formulario.children[1].value);
+
+        correr();
+    }
+
+}
+
+// let parrafo      = document.getElementById("parrafo1");
+// //Elminando el propio elemento, referenciando al padre
+// parrafo.parentNode.removeChild(parrafo);
+
+// let paises       = document.getElementsByClassName("paises");
+// //Eliminando el primer elemento de clase paises
+// paises[0].parentNode.removeChild(paises[0])
+
+
+
+
+
 
 function correr() {
 
@@ -58,6 +117,8 @@ function correr() {
             }
         }
     }
+
+
 
     function tomarPedido() {
 
@@ -155,20 +216,20 @@ function correr() {
         return new Pedido(comida, precioComida, cantidadComida, bebida, precioBebida, cantidadBebida);
     }
 
+
+
     const pedido = new tomarPedido();
     pedido.calcularCuenta();
     pedido.calcularIva();
     pedido.aplicarDescuento();
     pedido.darPropina();
 
-
-
-
+    
     let contenedor = document.createElement("div");
     contenedor.innerHTML = `<h3>Detalle de la cuenta:</h3>
 <p>- ${pedido.cantidadComida} ${pedido.comida} x $${pedido.precioComida} = $${pedido.cantidadComida * pedido.precioComida}</p>
 <p>- ${pedido.cantidadBebida} ${pedido.bebida} x $${pedido.precioBebida} = $${pedido.cantidadBebida * pedido.precioBebida}</p>
-<p>---------------------------</p>
+<p>--------------------------</p>
 <p>SubTotal = $${pedido.cuenta} (iva = $${pedido.iva})</p>
 <p>- Descuento = $${pedido.descuento}</p>
 <p>- Propina = $${pedido.propina} (% = ${pedido.porcentajePropina})</p>
@@ -176,17 +237,31 @@ function correr() {
 
 <h3><b>Total = $${pedido.total}</b></h3>
 
-<input type="button" class="  eliminar" value="Eliminar" onclick="eliminar()">`
+
+<button id="eliminar" class="eliminar">Eliminar</button>`
     cuenta.appendChild(contenedor);
+    let elimina = document.getElementById("eliminar");
+    elimina.addEventListener("click", eliminar);
 
 };
 
+
 function eliminar() {
-    cuenta.innerHTML = "";
-}
+        cuenta.innerHTML = "";
+        pedido.innerHTML = "";
+        hacerPedido.appendChild(contenedor);
+};
 
 // function otroPedido() {
 //     eliminar();
 //     correr();
 // }
 // <input type="button" class="menu__item menu__link pedido" value="Realice su pedido" onclick=" otroPedido() "></input>
+
+
+
+
+
+
+
+
