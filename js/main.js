@@ -1,22 +1,26 @@
 
-// Clase 09 Desafío: Interactuar con HTML
+// Clase 09 Desafío: Incorporar eventos
 
+
+//AGREGA EL BOTON DE PEDIDO
 let contenedor = document.createElement("hacerPedido");
 contenedor.innerHTML = `<button id="btn-pedido" class="menu__item menu__link pedido">Realice su pedido</button>`;
 hacerPedido.appendChild(contenedor);
-// COMO ELIMINAR EL BOTON DE PEDIDO?
+
+//ELIMINAR EL BOTON DE PEDIDO
 hacerPedido.addEventListener("click", respuestaClick2)
 function respuestaClick2() {
     hacerPedido.parentNode.removeChild(hacerPedido);
 }
 
-// Click del boton pedido
 let comida = 0;
 let cantidadComida = 0;
 let precioComida = 0;
 let bebida = 0;
 let cantidadBebida = 0;
 let precioBebida = 0;
+
+// Click del boton pedido
 let boton = document.getElementById("btn-pedido");
 boton.addEventListener("click", respuestaClick);
 function respuestaClick() {
@@ -29,6 +33,7 @@ function respuestaClick() {
                                         2: Hamburguesa ($350)<br>
                                         3: Picada ($700)<br>
                                         4: Tostados ($200)<br>
+                                        5: Otra comida<br>
                                         Introduce el número junto a la opción:<br>
                                     </div>
                                     <input type="number">
@@ -42,6 +47,7 @@ function respuestaClick() {
                                         2: Agua ($100)<br>
                                         3: Jugo ($200)<br>
                                         4: Agua gasificada ($120)<br>
+                                        5: Otra bebida<br>
                                         Introduce el número junto a la opción:<br>
                                     </div>
                                     <input type="number">
@@ -60,6 +66,28 @@ function respuestaClick() {
         //Obtenemos el elemento desde el cual se disparó el evento
         let formulario = e.target;
 
+        if (formulario.children[1].value.length == 0 || parseInt(formulario.children[1].value) == 0 || parseInt(formulario.children[1].value) > 5 || parseInt(formulario.children[1].value) < 0) {
+            alert("Tiene que ingresar una opcion de comida del 1 al 5");
+            return 0;
+        }
+        if (formulario.children[3].value.length == 0 || parseInt(formulario.children[3].value) == 0) {
+            alert("Tiene que ingresar la cantidad de comida");
+            return 0;
+        }
+        if (formulario.children[5].value.length == 0 || parseInt(formulario.children[5].value) == 0 || parseInt(formulario.children[5].value) > 5 || parseInt(formulario.children[5].value) < 0) {
+            alert("Tiene que ingresar una opcion de bebida del 1 al 5");
+            return 0;
+        }
+        if (formulario.children[7].value.length == 0 || parseInt(formulario.children[7].value) == 0) {
+            alert("Tiene que ingresar la cantidad de bebida");
+            return 0;
+        }
+
+        console.log(formulario.children[1].value);
+        console.log(formulario.children[3].value);
+        console.log(formulario.children[5].value);
+        console.log(formulario.children[7].value);
+
         // console.log(formulario.children[1].value);
         // console.log(formulario.children[3].value);
         // console.log(formulario.children[5].value);
@@ -75,7 +103,6 @@ function respuestaClick() {
         // console.log(bebida);
         // console.log(cantidadBebida);
 
-
         const pedidoComida = [
             { id: 1, comida: 'Pancho', precioComida: 100 },
             { id: 2, comida: 'Hamburguesa', precioComida: 350 },
@@ -83,71 +110,71 @@ function respuestaClick() {
             { id: 4, comida: 'Tostados', precioComida: 200 },
         ];
 
-            if (comida == 1) {
-                comida = pedidoComida[0].comida;
-                precioComida = pedidoComida[0].precioComida;
+        if (comida == 1) {
+            comida = pedidoComida[0].comida;
+            precioComida = pedidoComida[0].precioComida;
+        }
+        else if (comida == 2) {
+            comida = pedidoComida[1].comida;
+            precioComida = pedidoComida[1].precioComida;
+        }
+        else if (comida == 3) {
+            comida = pedidoComida[2].comida;
+            precioComida = pedidoComida[2].precioComida;
+        }
+        else if (comida == 4) {
+            comida = pedidoComida[3].comida;
+            precioComida = pedidoComida[3].precioComida;
+        }
+        else if (comida == 5) {
+            let entradaComida = prompt("Ingresar otra comida");
+            let entradaPrecioComida;
+            while (!entradaPrecioComida || entradaPrecioComida == 0 || entradaPrecioComida < 0) {
+                entradaPrecioComida = parseInt(prompt("ingresa precio de otra comida"));
             }
-            else if (comida == 2) {
-                comida = pedidoComida[1].comida;
-                precioComida = pedidoComida[1].precioComida;
+            pedidoComida.push({ id: (comida), comida: (entradaComida), precioComida: (entradaPrecioComida) });
+            comida = pedidoComida[4].comida;
+            precioComida = pedidoComida[4].precioComida;
+        }
+        else {
+            comida = 0;
+        }
+        const pedidoBebida = [
+            { id: 1, bebida: "Gaseosa", precioBebida: 150 },
+            { id: 2, bebida: "Agua", precioBebida: 100 },
+            { id: 3, bebida: "Jugo", precioBebida: 200 },
+            { id: 4, bebida: "Agua gasificada", precioBebida: 120 },
+        ]
+
+        if (bebida == 1) {
+            bebida = pedidoBebida[0].bebida;
+            precioBebida = pedidoBebida[0].precioBebida;
+        }
+        else if (bebida == 2) {
+            bebida = pedidoBebida[1].bebida;
+            precioBebida = pedidoBebida[1].precioBebida;
+        }
+        else if (bebida == 3) {
+            bebida = pedidoBebida[2].bebida;
+            precioBebida = pedidoBebida[2].precioBebida;
+        }
+        else if (bebida == 4) {
+            bebida = pedidoBebida[3].bebida;
+            precioBebida = pedidoBebida[3].precioBebida;
+        }
+        else if (bebida == 5) {
+            let entradaBebida = prompt("Ingresar otra bebida");
+            let entradaPrecioBebida;
+            while (!entradaPrecioBebida || entradaPrecioBebida == 0 || entradaPrecioBebida < 0) {
+                entradaPrecioBebida = parseInt(prompt("Ingresa precio de otra bebida"));
             }
-            else if (comida == 3) {
-                comida = pedidoComida[2].comida;
-                precioComida = pedidoComida[2].precioComida;
-            }
-            else if (comida == 4) {
-                comida = pedidoComida[3].comida;
-                precioComida = pedidoComida[3].precioComida;
-            }
-            else if (comida == 5) {
-                let entradaComida = prompt("Ingresar otra comida");
-                let entradaPrecioComida;
-                while (!entradaPrecioComida || entradaPrecioComida == 0 || entradaPrecioComida < 0) {
-                    entradaPrecioComida = parseInt(prompt("ingresa precio de otra comida"));
-                }
-                pedidoComida.push({ id: (comida), comida: (entradaComida), precioComida: (entradaPrecioComida) });
-                comida = pedidoComida[4].comida;
-                precioComida = pedidoComida[4].precioComida;
-            }
-            else {
-                comida = 0;
-            }
-            const pedidoBebida = [
-                { id: 1, bebida: "Gaseosa", precioBebida: 150 },
-                { id: 2, bebida: "Agua", precioBebida: 100 },
-                { id: 3, bebida: "Jugo", precioBebida: 200 },
-                { id: 4, bebida: "Agua gasificada", precioBebida: 120 },
-            ]
-    
-                if (bebida == 1) {
-                    bebida = pedidoBebida[0].bebida;
-                    precioBebida = pedidoBebida[0].precioBebida;
-                }
-                else if (bebida == 2) {
-                    bebida = pedidoBebida[1].bebida;
-                    precioBebida = pedidoBebida[1].precioBebida;
-                }
-                else if (bebida == 3) {
-                    bebida = pedidoBebida[2].bebida;
-                    precioBebida = pedidoBebida[2].precioBebida;
-                }
-                else if (bebida == 4) {
-                    bebida = pedidoBebida[3].bebida;
-                    precioBebida = pedidoBebida[3].precioBebida;
-                }
-                else if (bebida == 5) {
-                    let entradaBebida = prompt("Ingresar otra bebida");
-                    let entradaPrecioBebida;
-                    while (!entradaPrecioBebida || entradaPrecioBebida == 0 || entradaPrecioBebida < 0) {
-                        entradaPrecioBebida = parseInt(prompt("Ingresa precio de otra bebida"));
-                    }
-                    pedidoBebida.push({ id: (bebida), bebida: (entradaBebida), precioBebida: (entradaPrecioBebida) });
-                    bebida = pedidoBebida[4].bebida;
-                    precioBebida = pedidoBebida[4].precioBebida;
-                }
-                else {
-                    bebida = 0;
-                }
+            pedidoBebida.push({ id: (bebida), bebida: (entradaBebida), precioBebida: (entradaPrecioBebida) });
+            bebida = pedidoBebida[4].bebida;
+            precioBebida = pedidoBebida[4].precioBebida;
+        }
+        else {
+            bebida = 0;
+        }
 
 
         // console.log(formulario.children[0].value);
@@ -166,7 +193,7 @@ function respuestaClick() {
         miFormulario.parentNode.removeChild(miFormulario);
         correr()
     }
-    
+
 }
 
 // console.log(comida);
@@ -178,7 +205,7 @@ function respuestaClick() {
 
 
 function correr() {
-    
+
     // console.log(comida);
     // console.log(precioComida);
     // console.log(cantidadComida);
@@ -268,7 +295,7 @@ function eliminar() {
     cuenta.innerHTML = "";
     pedido.innerHTML = "";
 };
-function actualizar(){
+function actualizar() {
     location.reload()
 };
 
