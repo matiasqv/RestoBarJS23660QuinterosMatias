@@ -83,25 +83,10 @@ function respuestaClick() {
             return 0;
         }
 
-        console.log(formulario.children[1].value);
-        console.log(formulario.children[3].value);
-        console.log(formulario.children[5].value);
-        console.log(formulario.children[7].value);
-
-        // console.log(formulario.children[1].value);
-        // console.log(formulario.children[3].value);
-        // console.log(formulario.children[5].value);
-        // console.log(formulario.children[7].value);
-
         comida = parseInt(formulario.children[1].value);
         cantidadComida = parseInt(formulario.children[3].value);
         bebida = parseInt(formulario.children[5].value);
         cantidadBebida = parseInt(formulario.children[7].value);
-
-        // console.log(comida);
-        // console.log(cantidadComida);
-        // console.log(bebida);
-        // console.log(cantidadBebida);
 
         const pedidoComida = [
             { id: 1, comida: 'Pancho', precioComida: 100 },
@@ -176,42 +161,15 @@ function respuestaClick() {
             bebida = 0;
         }
 
-
-        // console.log(formulario.children[0].value);
-        // console.log(formulario.children[1].value);
-        // console.log(formulario.children[2].value);
-        // console.log(formulario.children[3].value);
-        // console.log(comida);
-        // console.log(precioComida);
-        // console.log(cantidadComida);
-        // console.log(bebida);
-        // console.log(precioBebida);
-        // console.log(cantidadBebida);
-
-
         // ELIMINAR miFormulario
         miFormulario.parentNode.removeChild(miFormulario);
+        // CORRE LA FUNCION
         correr()
     }
 
 }
 
-// console.log(comida);
-// console.log(precioComida);
-// console.log(cantidadComida);
-// console.log(bebida);
-// console.log(precioBebida);
-// console.log(cantidadBebida);
-
-
 function correr() {
-
-    // console.log(comida);
-    // console.log(precioComida);
-    // console.log(cantidadComida);
-    // console.log(bebida);
-    // console.log(precioBebida);
-    // console.log(cantidadBebida);
 
     class Pedido {
         constructor(comida, precioComida, cantidadComida, bebida, precioBebida, cantidadBebida) {
@@ -284,7 +242,6 @@ function correr() {
 
 <h3><b>Total = $${pedido.total}</b></h3>
 
-
 <button id="eliminar" class="eliminar">Eliminar</button>`
     cuenta.appendChild(contenedor);
     let elimina = document.getElementById("eliminar");
@@ -298,10 +255,3 @@ function eliminar() {
 function actualizar() {
     location.reload()
 };
-
-
-
-
-
-
-
