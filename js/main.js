@@ -3,57 +3,29 @@
 
 
 //AGREGA EL BOTON DE PEDIDO
-document.getElementById("formularioXXX").style.display = "none";
+document.getElementById("local").style.display = "none";
 let contenedor = document.createElement("hacerPedido");
 contenedor.innerHTML = `<button id="btn-pedido" class="menu__item menu__link pedido">Realice su pedido</button>`;
 hacerPedido.appendChild(contenedor);
-let mesa = 0;
+
 let mozo = 0;
+let mesa = 0;
 
 //ELIMINAR EL BOTON DE PEDIDO
+//MUESTRA PARA AGREGAR EL MOZO Y LA MESA
 hacerPedido.addEventListener("click", respuestaClick2)
 function respuestaClick2() {
     hacerPedido.parentNode.removeChild(hacerPedido);
-
-    document.getElementById("formularioXXX").style.display = "block";
-    let miFormulario = document.getElementById("formularioXXX");
-    miFormulario.addEventListener("submit", validarFormulario);
+    document.getElementById("local").style.display = "block";
+    let local = document.getElementById("local");
+    local.addEventListener("submit", validarFormulario);
     function validarFormulario(e) {
         e.preventDefault();
-        let formulario = e.target
-        console.log(formulario.children[1].value);
-        console.log(formulario.children[3].value);
-        
+        let salon = e.target
+        mozo = parseInt(salon.children[1].value);
+        mesa = parseInt(salon.children[3].value);
     }
-
-    // document.getElementById("local").style.display = "block";
-
-    // let local = document.getElementById ("local");
-    // local.addEventListener("submit", validarFormulario);
-    // function validarFormulario(e) {
-    //     //Cancelamos el comportamiento del evento
-    //     e.preventDefault();
-    //     //Obtenemos el elemento desde el cual se disparó el evento
-    //     let formulario = e.target
-    //     //Obtengo el valor del primero hijo <input type="text">
-    //     console.log(formulario.children[0].value);
-    //     //Obtengo el valor del segundo hijo <input type="number">
-    //     console.log(formulario.children[1].value);
-    //     // document.getElementById("local").style.display = "none";
-    // }
 }
-
-
-
-console.log(mozo);
-console.log(mesa);
-
-
-
-
-
-
-
 
 let comida = 0;
 let cantidadComida = 0;
@@ -66,9 +38,9 @@ let precioBebida = 0;
 let boton = document.getElementById("addMesaXXX");
 boton.addEventListener("click", respuestaClick);
 function respuestaClick() {
+    //OCULTA EL INGRESO DE MOZO Y MESA
+    document.getElementById("local").style.display = "none";  
 
-    document.getElementById("formularioXXX").style.display = "none";
-    
     let miFormulario = document.createElement("formulario");
     miFormulario.innerHTML = ` <form id="formulario">
                                     <div>
@@ -109,12 +81,6 @@ function respuestaClick() {
         e.preventDefault();
         //Obtenemos el elemento desde el cual se disparó el evento
         let formulario = e.target;
-
-        console.log(formulario.children[0].value);
-        console.log(formulario.children[1].value);
-        console.log(formulario.children[2].value);
-        console.log(formulario.children[3].value);
-        console.log(formulario.children[4].value);
 
         if (formulario.children[1].value.length == 0 || parseInt(formulario.children[1].value) == 0 || parseInt(formulario.children[1].value) > 5 || parseInt(formulario.children[1].value) < 0) {
             alert("Tiene que ingresar una opcion de comida del 1 al 5");
@@ -216,7 +182,6 @@ function respuestaClick() {
         // CORRE LA FUNCION
         correr()
     }
-
 }
 
 function correr() {
@@ -281,7 +246,11 @@ function correr() {
     pedido.darPropina();
 
     let contenedor = document.createElement("div");
-    contenedor.innerHTML = `<h3>Detalle de la cuenta:</h3>
+    contenedor.innerHTML = `
+    <h3>RestoBar</h3>
+<h1>Mozo: ${mozo}</h1> <h1>Mesa: ${mesa}</h1>
+<p>==========================</p>
+<h3>Detalle de la cuenta:</h3>
 <p>- ${pedido.cantidadComida} ${pedido.comida} x $${pedido.precioComida} = $${pedido.cantidadComida * pedido.precioComida}</p>
 <p>- ${pedido.cantidadBebida} ${pedido.bebida} x $${pedido.precioBebida} = $${pedido.cantidadBebida * pedido.precioBebida}</p>
 <p>--------------------------</p>
