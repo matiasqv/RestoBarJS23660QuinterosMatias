@@ -35,7 +35,7 @@ let cantidadBebida = 0;
 let precioBebida = 0;
 
 // Click del boton pedido
-let boton = document.getElementById("addMesaXXX");
+let boton = document.getElementById("addLocal");
 boton.addEventListener("click", respuestaClick);
 function respuestaClick() {
     //OCULTA EL INGRESO DE MOZO Y MESA
