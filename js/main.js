@@ -1,9 +1,10 @@
 
-// Clase 09 Desafío: Incorporar eventos
+// Clase 09 Desafío: COMPLEMENTARIO Generar HTML
 
 
-//AGREGA EL BOTON DE PEDIDO
+//OCULTA EL INGRESO DE MOZO Y MESA
 document.getElementById("local").style.display = "none";
+//AGREGA EL BOTON DE PEDIDO
 let contenedor = document.createElement("hacerPedido");
 contenedor.innerHTML = `<button id="btn-pedido" class="menu__item menu__link pedido">Realice su pedido</button>`;
 hacerPedido.appendChild(contenedor);
@@ -11,11 +12,13 @@ hacerPedido.appendChild(contenedor);
 let mozo = 0;
 let mesa = 0;
 
-//ELIMINAR EL BOTON DE PEDIDO
-//MUESTRA PARA AGREGAR EL MOZO Y LA MESA
+
+
 hacerPedido.addEventListener("click", respuestaClick2)
 function respuestaClick2() {
+    //ELIMINAR EL BOTON DE PEDIDO
     hacerPedido.parentNode.removeChild(hacerPedido);
+    //MUESTRA PARA AGREGAR EL MOZO Y LA MESA
     document.getElementById("local").style.display = "block";
     let local = document.getElementById("local");
     local.addEventListener("submit", validarFormulario);
@@ -247,7 +250,7 @@ function correr() {
 
     let contenedor = document.createElement("div");
     contenedor.innerHTML = `
-    <h3>RestoBar</h3>
+    <h3>RestoBar AB</h3>
 <h1>Mozo: ${mozo}</h1> <h1>Mesa: ${mesa}</h1>
 <p>==========================</p>
 <h3>Detalle de la cuenta:</h3>
