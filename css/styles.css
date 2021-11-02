@@ -249,6 +249,10 @@ html body div ul a {
   border-radius: 50%;
 }
 
+.group .container .column #local {
+  display: none;
+}
+
 .eliminar:hover {
   background: red;
 }

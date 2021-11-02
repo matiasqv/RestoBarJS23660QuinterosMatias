@@ -3,15 +3,57 @@
 
 
 //AGREGA EL BOTON DE PEDIDO
+document.getElementById("formularioXXX").style.display = "none";
 let contenedor = document.createElement("hacerPedido");
 contenedor.innerHTML = `<button id="btn-pedido" class="menu__item menu__link pedido">Realice su pedido</button>`;
 hacerPedido.appendChild(contenedor);
+let mesa = 0;
+let mozo = 0;
 
 //ELIMINAR EL BOTON DE PEDIDO
 hacerPedido.addEventListener("click", respuestaClick2)
 function respuestaClick2() {
     hacerPedido.parentNode.removeChild(hacerPedido);
+
+    document.getElementById("formularioXXX").style.display = "block";
+    let miFormulario = document.getElementById("formularioXXX");
+    miFormulario.addEventListener("submit", validarFormulario);
+    function validarFormulario(e) {
+        e.preventDefault();
+        let formulario = e.target
+        console.log(formulario.children[1].value);
+        console.log(formulario.children[3].value);
+        
+    }
+
+    // document.getElementById("local").style.display = "block";
+
+    // let local = document.getElementById ("local");
+    // local.addEventListener("submit", validarFormulario);
+    // function validarFormulario(e) {
+    //     //Cancelamos el comportamiento del evento
+    //     e.preventDefault();
+    //     //Obtenemos el elemento desde el cual se disparó el evento
+    //     let formulario = e.target
+    //     //Obtengo el valor del primero hijo <input type="text">
+    //     console.log(formulario.children[0].value);
+    //     //Obtengo el valor del segundo hijo <input type="number">
+    //     console.log(formulario.children[1].value);
+    //     // document.getElementById("local").style.display = "none";
+    // }
 }
+
+
+
+console.log(mozo);
+console.log(mesa);
+
+
+
+
+
+
+
 
 let comida = 0;
 let cantidadComida = 0;
@@ -21,14 +63,16 @@ let cantidadBebida = 0;
 let precioBebida = 0;
 
 // Click del boton pedido
-let boton = document.getElementById("btn-pedido");
+let boton = document.getElementById("addMesaXXX");
 boton.addEventListener("click", respuestaClick);
 function respuestaClick() {
-    console.log("Respuesta evento");
+
+    document.getElementById("formularioXXX").style.display = "none";
+    
     let miFormulario = document.createElement("formulario");
     miFormulario.innerHTML = ` <form id="formulario">
                                     <div>
-                                        ¿Qué va a comer?<br>
+                                        <h2>¿Qué va a comer?</h2><br>
                                         1: Pancho ($100)<br>
                                         2: Hamburguesa ($350)<br>
                                         3: Picada ($700)<br>
@@ -41,8 +85,8 @@ function respuestaClick() {
                                         Ingresa la cantidad:<br>
                                     </div>
                                     <input type="number">
-                                    <div>
-                                        ¿Qué vas a tomar?<br>
+                                    <div><br>
+                                        <h2>¿Qué vas a tomar?</h2><br>
                                         1: Gaseosa ($150)<br>
                                         2: Agua ($100)<br>
                                         3: Jugo ($200)<br>
@@ -54,7 +98,7 @@ function respuestaClick() {
                                     <div>
                                         Ingresa la cantidad:<br>
                                     </div>
-                                    <input type="number">
+                                    <input type="number"><br>
                                     <input type="submit" value="Enviar">
                                 </form>`
     pedido.appendChild(miFormulario);
@@ -65,6 +109,12 @@ function respuestaClick() {
         e.preventDefault();
         //Obtenemos el elemento desde el cual se disparó el evento
         let formulario = e.target;
+
+        console.log(formulario.children[0].value);
+        console.log(formulario.children[1].value);
+        console.log(formulario.children[2].value);
+        console.log(formulario.children[3].value);
+        console.log(formulario.children[4].value);
 
         if (formulario.children[1].value.length == 0 || parseInt(formulario.children[1].value) == 0 || parseInt(formulario.children[1].value) > 5 || parseInt(formulario.children[1].value) < 0) {
             alert("Tiene que ingresar una opcion de comida del 1 al 5");
