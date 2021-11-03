@@ -8,6 +8,9 @@ document.getElementById("local").style.display = "none";
 let contenedor = document.createElement("hacerPedido");
 contenedor.innerHTML = `<button id="btn-pedido" class="menu__item menu__link pedido">Realice su pedido</button>`;
 hacerPedido.appendChild(contenedor);
+let contenedor2 = document.createElement("recuperarPedido");
+contenedor2.innerHTML = `<button id="btn-recuperCuenta" class="menu__item menu__link pedido">Recuperar ultima cuenta</button>`;
+recuperarPedido.appendChild(contenedor2);
 
 let mozo = 0;
 let mesa = 0;
@@ -18,6 +21,7 @@ hacerPedido.addEventListener("click", respuestaClick2)
 function respuestaClick2() {
     //ELIMINAR EL BOTON DE PEDIDO
     hacerPedido.parentNode.removeChild(hacerPedido);
+    recuperarPedido.parentNode.removeChild(recuperarPedido);
     //MUESTRA PARA AGREGAR EL MOZO Y LA MESA
     document.getElementById("local").style.display = "block";
     let local = document.getElementById("local");
@@ -51,7 +55,7 @@ let boton = document.getElementById("addLocal");
 boton.addEventListener("click", respuestaClick);
 function respuestaClick() {
     //OCULTA EL INGRESO DE MOZO Y MESA
-    document.getElementById("local").style.display = "none";  
+    document.getElementById("local").style.display = "none";
 
     let miFormulario = document.createElement("formulario");
     miFormulario.innerHTML = ` <form id="formulario">
@@ -275,28 +279,26 @@ function correr() {
 
 <button id="eliminar" class="eliminar">Eliminar</button>`
 
-//// VER QUE PASA AQUI
     cuenta.appendChild(contenedor);
-    
+
     misCuentas.push({
-                mozo: (mozo), 
-                mesa: (mesa), 
-                cantidadComida: (pedido.cantidadComida),  
-                comida: (pedido.comida),
-                precioComida: (pedido.precioComida),
-                bebida: (pedido.bebida), 
-                cantidadBebida : (pedido.cantidadBebida),
-                precioBebida : (pedido.precioBebida),
-                propina : (pedido.propina),
-                porcentajePropina : (pedido.porcentajePropina),
-                iva : (pedido.iva),
-                descuento : (pedido.descuento),
-                cuenta : (pedido.cuenta),
-                total : (pedido.total)
-                });
-    // guardarLocal("misCuentas", JSON.stringify(misCuentas));
-    
-    guardarCuentaLocalStorage()     
+        mozo: (mozo),
+        mesa: (mesa),
+        cantidadComida: (pedido.cantidadComida),
+        comida: (pedido.comida),
+        precioComida: (pedido.precioComida),
+        bebida: (pedido.bebida),
+        cantidadBebida: (pedido.cantidadBebida),
+        precioBebida: (pedido.precioBebida),
+        propina: (pedido.propina),
+        porcentajePropina: (pedido.porcentajePropina),
+        iva: (pedido.iva),
+        descuento: (pedido.descuento),
+        cuenta: (pedido.cuenta),
+        total: (pedido.total)
+    });
+
+    guardarCuentaLocalStorage()
 
     let elimina = document.getElementById("eliminar");
     elimina.addEventListener("click", eliminar && actualizar);
@@ -310,32 +312,112 @@ function actualizar() {
     location.reload()
 };
 
-
-
 const misCuentas = [];
-console.log(misCuentas);
 
-function guardarCuentaLocalStorage(){
+function guardarCuentaLocalStorage() {
     localStorage.setItem('misCuentas', JSON.stringify(misCuentas));
 }
 
-/////AQUI VEO LO GUARDADO EN EL LOCALSTORAGE, PERO COMO UN STRING
-
-// let guardado = localStorage.getItem('misCuentas');
-// console.log('objetoObtenido: ', JSON.parse(guardado));
 
 
-let guardado22 = JSON.parse(localStorage.getItem('misCuentas'));
-console.log(guardado22);
-for (const producto of guardado22) {
-    console.log(producto.mozo);
-    console.log(producto.mesa);
-    console.log(producto.cantidadComida);
-    console.log(producto.comida);
-    console.log(producto.precioComida);
-    console.log(producto.bebida);
-    console.log(producto.total);
+
+
+recuperarPedido.addEventListener("click", respuestaClick3)
+function respuestaClick3() {
+    //ELIMINAR EL BOTON DE PEDIDO
+    hacerPedido.parentNode.removeChild(hacerPedido);
+    recuperarPedido.parentNode.removeChild(recuperarPedido);
+
+
+    let guardado = JSON.parse(localStorage.getItem('misCuentas'));
+    console.log(guardado);
+    for (const producto of guardado) {
+        console.log(producto.mozo);
+        console.log(producto.mesa);
+        console.log(producto.cantidadComida);
+        console.log(producto.comida);
+        console.log(producto.precioComida);
+        console.log(producto.bebida);
+        console.log(producto.total);
+
+
+        let contenedor2 = document.createElement("div");
+        contenedor2.innerHTML = `
+    <h3>RestoBar AB</h3>
+<h1>Mozo: ${producto.mozo}</h1> <h1>Mesa: ${producto.mesa}</h1>
+<p>==========================</p>
+<h3>Detalle de la cuenta:</h3>
+<p>- ${pedido.cantidadComida} ${pedido.comida} x $${pedido.precioComida} = $${pedido.cantidadComida * pedido.precioComida}</p>
+<p>- ${pedido.cantidadBebida} ${pedido.bebida} x $${pedido.precioBebida} = $${pedido.cantidadBebida * pedido.precioBebida}</p>
+<p>--------------------------</p>
+<p>SubTotal = $${pedido.cuenta} (iva = $${pedido.iva})</p>
+<p>- Descuento = $${pedido.descuento}</p>
+<p>- Propina = $${pedido.propina} (% = ${pedido.porcentajePropina})</p>
+<p>==========================</p>
+
+<h3><b>Total = $${pedido.total}</b></h3>
+
+<button id="eliminar" class="eliminar">Eliminar</button>`
+
+        cuenta.appendChild(contenedor2);
+
+        let elimina = document.getElementById("eliminar");
+        elimina.addEventListener("click", eliminar && actualizar);
+
+    }
+
+
 }
+
+
+
+
+// let guardado = JSON.parse(localStorage.getItem('misCuentas'));
+// console.log(guardado);
+// for (const producto of guardado) {
+//     console.log(producto.mozo);
+//     console.log(producto.mesa);
+//     console.log(producto.cantidadComida);
+//     console.log(producto.comida);
+//     console.log(producto.precioComida);
+//     console.log(producto.bebida);
+//     console.log(producto.total);
+
+
+//     let contenedor2 = document.createElement("div");
+//     contenedor2.innerHTML = `
+//     <h3>RestoBar AB</h3>
+// <h1>Mozo: ${producto.mozo}</h1> <h1>Mesa: ${producto.mesa}</h1>
+// <p>==========================</p>
+// <h3>Detalle de la cuenta:</h3>
+// <p>- ${pedido.cantidadComida} ${pedido.comida} x $${pedido.precioComida} = $${pedido.cantidadComida * pedido.precioComida}</p>
+// <p>- ${pedido.cantidadBebida} ${pedido.bebida} x $${pedido.precioBebida} = $${pedido.cantidadBebida * pedido.precioBebida}</p>
+// <p>--------------------------</p>
+// <p>SubTotal = $${pedido.cuenta} (iva = $${pedido.iva})</p>
+// <p>- Descuento = $${pedido.descuento}</p>
+// <p>- Propina = $${pedido.propina} (% = ${pedido.porcentajePropina})</p>
+// <p>==========================</p>
+
+// <h3><b>Total = $${pedido.total}</b></h3>
+
+// <button id="eliminar" class="eliminar">Eliminar</button>`
+
+//     misCuenta.appendChild(contenedor2);
+
+//     let elimina = document.getElementById("eliminar");
+//     elimina.addEventListener("click", eliminar && actualizar);
+
+// }
+
+
+
+
+
+
+
+
+
+
 
 
     ///// RECUPERO LOS DATOS DEL LOCALSTORAGE
@@ -356,7 +438,7 @@ for (const producto of guardado22) {
     //         this.cuenta = objeto.cuenta;
     //         this.total = objeto.total;
     //     }
-        
+
     // }
     // const almacenados = JSON.parse(localStorage.getItem("misCuentas"));
     // const productos = [];
@@ -377,6 +459,6 @@ for (const producto of guardado22) {
     //     console.log(producto.bebida);
     //     console.log(producto.total);
     // }
-    
+
 
 
