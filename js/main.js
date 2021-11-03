@@ -1,5 +1,5 @@
 
-// Clase 09 Desafío: COMPLEMENTARIO Generar HTML
+// Clase 10 Desafío: Segunda Entrega del Proyecto Final
 
 
 //OCULTA EL INGRESO DE MOZO Y MESA
@@ -29,13 +29,6 @@ function respuestaClick2() {
     function validarFormulario(e) {
         e.preventDefault();
         let salon = e.target
-
-        // COMO VALIDAR ESTO????????????????
-
-        // if (salon.children[1].value.length == 0 || parseInt(salon.children[1].value) == 0 || parseInt(salon.children[1].value) > 5 || parseInt(salon.children[1].value) < 0) {
-        //     alert("Tiene que ingresar una opcion de id de mozo del 1 al 5");
-        //     return 0;
-        // }
 
         mozo = parseInt(salon.children[1].value);
         mesa = parseInt(salon.children[3].value);
