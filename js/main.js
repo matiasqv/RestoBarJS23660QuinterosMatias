@@ -295,6 +295,7 @@ function correr() {
                 total : (pedido.total)
                 });
     // guardarLocal("misCuentas", JSON.stringify(misCuentas));
+    
     guardarCuentaLocalStorage(misCuentas)     
 
     let elimina = document.getElementById("eliminar");
@@ -322,16 +323,9 @@ console.log(misCuentas);
 // (clave, valor) => { localStorage.setItem(clave, valor) };
 
 
-function guardarCuentaLocalStorage(misCuentas){
-    // let productos;
-    // //Toma valor de un arreglo con datos del LS
-    // productos = this.obtenerProductosLocalStorage();
-    // //Agregar el producto al carrito
-    // misCuentas.push(misCuentas);
-    // //Agregamos al LS
+function guardarCuentaLocalStorage(){
     localStorage.setItem('misCuentas', JSON.stringify(misCuentas));
 }
-
 
 /////AQUI VEO LO GUARDADO EN EL LOCALSTORAGE, PERO COMO UN STRING
 
@@ -342,35 +336,34 @@ console.log(typeof guardado);
 
 
     ///// RECUPERO LOS DATOS DEL LOCALSTORAGE
-    class Cuenta {
-        constructor(objeto) {
-            this.mozo  = objeto.mozo;
-            this.mesa  = parseFloat(objeto.mesa);
-            this.cantidadComida = objeto.cantidadComida;
-            this.comida = objeto.comida;
-            this.precioComida = parseFloat(objeto.precioComida);
-            this.bebida = objeto.bebida;
-            this.cantidadBebida = objeto.cantidadBebida;
-            this.precioBebida = objeto.precioBebida;
-            this.propina = objeto.propina;
-            this.porcentajePropina = objeto.porcentajePropina;
-            this.iva = objeto.iva;
-            this.descuento = objeto.descuento;
-            this.cuenta = objeto.cuenta;
-            this.total = objeto.total;
-        }
-    }
+    // class Cuentas {
+    //     constructor(objeto) {
+    //         this.mozo  = objeto.mozo;
+    //         this.mesa  = parseFloat(objeto.mesa);
+    //         this.cantidadComida = objeto.cantidadComida;
+    //         this.comida = objeto.comida;
+    //         this.precioComida = parseFloat(objeto.precioComida);
+    //         this.bebida = objeto.bebida;
+    //         this.cantidadBebida = objeto.cantidadBebida;
+    //         this.precioBebida = objeto.precioBebida;
+    //         this.propina = objeto.propina;
+    //         this.porcentajePropina = objeto.porcentajePropina;
+    //         this.iva = objeto.iva;
+    //         this.descuento = objeto.descuento;
+    //         this.cuenta = objeto.cuenta;
+    //         this.total = objeto.total;
+    //     }
+    // }
     const almacenados = JSON.parse(localStorage.getItem("misCuentas"));
     const productos = [];
     for (const objeto of almacenados)
-        productos.push(new Cuenta(objeto));
+        productos.push(almacenados);
 
     console.log(productos[0]);
     console.log(productos[1]);
     console.log(productos[2]);
-    console.log(productos.mozo);
-    console.log(productos.mozo);
-    console.log(productos.mesa);
+
+    console.log(this.mozo);
     console.log(productos.mozo);
     console.log(productos.mozo);
     console.log(typeof productos); 
