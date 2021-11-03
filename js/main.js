@@ -324,15 +324,6 @@ function respuestaClick3() {
     let guardado = JSON.parse(localStorage.getItem('misCuentas'));
     console.log(guardado);
     for (const producto of guardado) {
-        console.log(producto.mozo);
-        console.log(producto.mesa);
-        console.log(producto.cantidadComida);
-        console.log(producto.comida);
-        console.log(producto.precioComida);
-        console.log(producto.bebida);
-        console.log(producto.total);
-
-
         let contenedor2 = document.createElement("div");
         contenedor2.innerHTML = `
     <h3>RestoBar AB</h3>
