@@ -302,10 +302,6 @@ function correr() {
     elimina.addEventListener("click", eliminar && actualizar);
 };
 
-
-console.log(pedido.comida);
-console.log(pedido.total);
-
 function eliminar() {
     cuenta.innerHTML = "";
     pedido.innerHTML = "";
@@ -331,42 +327,84 @@ function guardarCuentaLocalStorage(){
 
 let guardado = localStorage.getItem('misCuentas');
 console.log('objetoObtenido: ', JSON.parse(guardado));
-console.log(typeof guardado); 
+
+
+let guardado22 = JSON.parse(localStorage.getItem('misCuentas'));
+console.log(guardado22);
+for (const producto of guardado22) {
+    console.log(producto.mozo);
+    console.log(producto.mesa);
+    console.log(producto.cantidadComida);
+    console.log(producto.comida);
+    console.log(producto.precioComida);
+    console.log(producto.bebida);
+    console.log(producto.total);
+}
+
+    // AQUI RECORREMOS AL ARRAY 
+    for (const producto of guardado22) {
+        console.log(producto.mozo);
+        console.log(producto.mesa);
+        console.log(producto.cantidadComida);
+        console.log(producto.comida);
+        console.log(producto.precioComida);
+        console.log(producto.bebida);
+        console.log(producto.total);
+    }
 
 
 
     ///// RECUPERO LOS DATOS DEL LOCALSTORAGE
-    // class Cuentas {
-    //     constructor(objeto) {
-    //         this.mozo  = objeto.mozo;
-    //         this.mesa  = parseFloat(objeto.mesa);
-    //         this.cantidadComida = objeto.cantidadComida;
-    //         this.comida = objeto.comida;
-    //         this.precioComida = parseFloat(objeto.precioComida);
-    //         this.bebida = objeto.bebida;
-    //         this.cantidadBebida = objeto.cantidadBebida;
-    //         this.precioBebida = objeto.precioBebida;
-    //         this.propina = objeto.propina;
-    //         this.porcentajePropina = objeto.porcentajePropina;
-    //         this.iva = objeto.iva;
-    //         this.descuento = objeto.descuento;
-    //         this.cuenta = objeto.cuenta;
-    //         this.total = objeto.total;
-    //     }
-    // }
+    class Cuentas {
+        constructor(objeto) {
+            this.mozo  = objeto.mozo;
+            this.mesa  = parseFloat(objeto.mesa);
+            this.cantidadComida = objeto.cantidadComida;
+            this.comida = objeto.comida;
+            this.precioComida = parseFloat(objeto.precioComida);
+            this.bebida = objeto.bebida;
+            this.cantidadBebida = objeto.cantidadBebida;
+            this.precioBebida = objeto.precioBebida;
+            this.propina = objeto.propina;
+            this.porcentajePropina = objeto.porcentajePropina;
+            this.iva = objeto.iva;
+            this.descuento = objeto.descuento;
+            this.cuenta = objeto.cuenta;
+            this.total = objeto.total;
+        }
+        
+    }
     const almacenados = JSON.parse(localStorage.getItem("misCuentas"));
     const productos = [];
     for (const objeto of almacenados)
-        productos.push(almacenados);
+        productos.push(new Cuentas(objeto));
 
+    console.log(productos);
     console.log(productos[0]);
-    console.log(productos[1]);
-    console.log(productos[2]);
+    for (const producto of productos) {
+        console.log(producto.mozo);
+        console.log(producto.mesa);
+        console.log(producto.cantidadComida);
+        console.log(producto.comida);
+        console.log(producto.precioComida);
+        console.log(producto.bebida);
+        console.log(producto.total);
+    }
 
-    console.log(this.mozo);
-    console.log(productos.mozo);
-    console.log(productos.mozo);
-    console.log(typeof productos); 
+    for (const propiedad in productos) {
+        console.log(productos[propiedad]);
+       }
+
+    // AQUI RECORREMOS AL ARRAY 
+    for (const producto of productos) {
+        console.log(producto.mozo);
+        console.log(producto.mesa);
+        console.log(producto.cantidadComida);
+        console.log(producto.comida);
+        console.log(producto.precioComida);
+        console.log(producto.bebida);
+        console.log(producto.total);
+    }
     
 
 
