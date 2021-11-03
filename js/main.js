@@ -9,7 +9,7 @@ let contenedor = document.createElement("hacerPedido");
 contenedor.innerHTML = `<button id="btn-pedido" class="menu__item menu__link pedido">Realice su pedido</button>`;
 hacerPedido.appendChild(contenedor);
 let contenedor2 = document.createElement("recuperarPedido");
-contenedor2.innerHTML = `<button id="btn-recuperCuenta" class="menu__item menu__link pedido">Recuperar ultima cuenta</button>`;
+contenedor2.innerHTML = `<button id="btn-recuperCuenta" class="menu__link menu__link pedido">Recuperar última cuenta</button>`;
 recuperarPedido.appendChild(contenedor2);
 
 let mozo = 0;
@@ -36,7 +36,6 @@ function respuestaClick2() {
         //     alert("Tiene que ingresar una opcion de id de mozo del 1 al 5");
         //     return 0;
         // }
-
 
         mozo = parseInt(salon.children[1].value);
         mesa = parseInt(salon.children[3].value);
