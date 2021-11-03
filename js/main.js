@@ -320,7 +320,7 @@ function guardarCuentaLocalStorage() {
 
 
 
-
+// RECUPERA LA ULTIMA CUENTAS GUARDADA EN EL LOCALSTORAGE
 
 recuperarPedido.addEventListener("click", respuestaClick3)
 function respuestaClick3() {
@@ -347,118 +347,19 @@ function respuestaClick3() {
 <h1>Mozo: ${producto.mozo}</h1> <h1>Mesa: ${producto.mesa}</h1>
 <p>==========================</p>
 <h3>Detalle de la cuenta:</h3>
-<p>- ${pedido.cantidadComida} ${pedido.comida} x $${pedido.precioComida} = $${pedido.cantidadComida * pedido.precioComida}</p>
-<p>- ${pedido.cantidadBebida} ${pedido.bebida} x $${pedido.precioBebida} = $${pedido.cantidadBebida * pedido.precioBebida}</p>
+<p>- ${producto.cantidadComida} ${producto.comida} x $${producto.precioComida} = $${producto.cantidadComida * producto.precioComida}</p>
+<p>- ${producto.cantidadBebida} ${producto.bebida} x $${producto.precioBebida} = $${producto.cantidadBebida * producto.precioBebida}</p>
 <p>--------------------------</p>
-<p>SubTotal = $${pedido.cuenta} (iva = $${pedido.iva})</p>
-<p>- Descuento = $${pedido.descuento}</p>
-<p>- Propina = $${pedido.propina} (% = ${pedido.porcentajePropina})</p>
+<p>SubTotal = $${producto.cuenta} (iva = $${producto.iva})</p>
+<p>- Descuento = $${producto.descuento}</p>
+<p>- Propina = $${producto.propina} (% = ${producto.porcentajePropina})</p>
 <p>==========================</p>
 
 <h3><b>Total = $${pedido.total}</b></h3>
 
 <button id="eliminar" class="eliminar">Eliminar</button>`
-
         cuenta.appendChild(contenedor2);
-
         let elimina = document.getElementById("eliminar");
         elimina.addEventListener("click", eliminar && actualizar);
-
     }
-
-
 }
-
-
-
-
-// let guardado = JSON.parse(localStorage.getItem('misCuentas'));
-// console.log(guardado);
-// for (const producto of guardado) {
-//     console.log(producto.mozo);
-//     console.log(producto.mesa);
-//     console.log(producto.cantidadComida);
-//     console.log(producto.comida);
-//     console.log(producto.precioComida);
-//     console.log(producto.bebida);
-//     console.log(producto.total);
-
-
-//     let contenedor2 = document.createElement("div");
-//     contenedor2.innerHTML = `
-//     <h3>RestoBar AB</h3>
-// <h1>Mozo: ${producto.mozo}</h1> <h1>Mesa: ${producto.mesa}</h1>
-// <p>==========================</p>
-// <h3>Detalle de la cuenta:</h3>
-// <p>- ${pedido.cantidadComida} ${pedido.comida} x $${pedido.precioComida} = $${pedido.cantidadComida * pedido.precioComida}</p>
-// <p>- ${pedido.cantidadBebida} ${pedido.bebida} x $${pedido.precioBebida} = $${pedido.cantidadBebida * pedido.precioBebida}</p>
-// <p>--------------------------</p>
-// <p>SubTotal = $${pedido.cuenta} (iva = $${pedido.iva})</p>
-// <p>- Descuento = $${pedido.descuento}</p>
-// <p>- Propina = $${pedido.propina} (% = ${pedido.porcentajePropina})</p>
-// <p>==========================</p>
-
-// <h3><b>Total = $${pedido.total}</b></h3>
-
-// <button id="eliminar" class="eliminar">Eliminar</button>`
-
-//     misCuenta.appendChild(contenedor2);
-
-//     let elimina = document.getElementById("eliminar");
-//     elimina.addEventListener("click", eliminar && actualizar);
-
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-    ///// RECUPERO LOS DATOS DEL LOCALSTORAGE
-    // class Cuentas {
-    //     constructor(objeto) {
-    //         this.mozo  = objeto.mozo;
-    //         this.mesa  = parseFloat(objeto.mesa);
-    //         this.cantidadComida = objeto.cantidadComida;
-    //         this.comida = objeto.comida;
-    //         this.precioComida = parseFloat(objeto.precioComida);
-    //         this.bebida = objeto.bebida;
-    //         this.cantidadBebida = objeto.cantidadBebida;
-    //         this.precioBebida = objeto.precioBebida;
-    //         this.propina = objeto.propina;
-    //         this.porcentajePropina = objeto.porcentajePropina;
-    //         this.iva = objeto.iva;
-    //         this.descuento = objeto.descuento;
-    //         this.cuenta = objeto.cuenta;
-    //         this.total = objeto.total;
-    //     }
-
-    // }
-    // const almacenados = JSON.parse(localStorage.getItem("misCuentas"));
-    // const productos = [];
-    // for (const objeto of almacenados)
-    //     productos.push(productos);
-
-    // console.log(productos);
-    // console.log(productos[0]);
-
-
-    // // AQUI RECORREMOS AL ARRAY 
-    // for (const producto of productos) {
-    //     console.log(producto.mozo);
-    //     console.log(producto.mesa);
-    //     console.log(producto.cantidadComida);
-    //     console.log(producto.comida);
-    //     console.log(producto.precioComida);
-    //     console.log(producto.bebida);
-    //     console.log(producto.total);
-    // }
-
-
-
