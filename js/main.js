@@ -274,10 +274,36 @@ function correr() {
 <h3><b>Total = $${pedido.total}</b></h3>
 
 <button id="eliminar" class="eliminar">Eliminar</button>`
+
+//// VER QUE PASA AQUI
     cuenta.appendChild(contenedor);
+    
+    misCuentas.push({
+                mozo: (mozo), 
+                mesa: (mesa), 
+                cantidadComida: (pedido.cantidadComida),  
+                comida: (pedido.comida),
+                precioComida: (pedido.precioComida),
+                bebida: (pedido.bebida), 
+                cantidadBebida : (pedido.cantidadBebida),
+                precioBebida : (pedido.precioBebida),
+                propina : (pedido.propina),
+                porcentajePropina : (pedido.porcentajePropina),
+                iva : (pedido.iva),
+                descuento : (pedido.descuento),
+                cuenta : (pedido.cuenta),
+                total : (pedido.total)
+                });
+    // guardarLocal("misCuentas", JSON.stringify(misCuentas));
+    guardarCuentaLocalStorage(misCuentas)     
+
     let elimina = document.getElementById("eliminar");
     elimina.addEventListener("click", eliminar && actualizar);
 };
+
+
+console.log(pedido.comida);
+console.log(pedido.total);
 
 function eliminar() {
     cuenta.innerHTML = "";
@@ -286,3 +312,68 @@ function eliminar() {
 function actualizar() {
     location.reload()
 };
+
+
+
+const misCuentas = [];
+console.log(misCuentas);
+
+// const guardarLocal = 
+// (clave, valor) => { localStorage.setItem(clave, valor) };
+
+
+function guardarCuentaLocalStorage(misCuentas){
+    // let productos;
+    // //Toma valor de un arreglo con datos del LS
+    // productos = this.obtenerProductosLocalStorage();
+    // //Agregar el producto al carrito
+    // misCuentas.push(misCuentas);
+    // //Agregamos al LS
+    localStorage.setItem('misCuentas', JSON.stringify(misCuentas));
+}
+
+
+/////AQUI VEO LO GUARDADO EN EL LOCALSTORAGE, PERO COMO UN STRING
+
+let guardado = localStorage.getItem('misCuentas');
+console.log('objetoObtenido: ', JSON.parse(guardado));
+console.log(typeof guardado); 
+
+
+
+    ///// RECUPERO LOS DATOS DEL LOCALSTORAGE
+    class Cuenta {
+        constructor(objeto) {
+            this.mozo  = objeto.mozo;
+            this.mesa  = parseFloat(objeto.mesa);
+            this.cantidadComida = objeto.cantidadComida;
+            this.comida = objeto.comida;
+            this.precioComida = parseFloat(objeto.precioComida);
+            this.bebida = objeto.bebida;
+            this.cantidadBebida = objeto.cantidadBebida;
+            this.precioBebida = objeto.precioBebida;
+            this.propina = objeto.propina;
+            this.porcentajePropina = objeto.porcentajePropina;
+            this.iva = objeto.iva;
+            this.descuento = objeto.descuento;
+            this.cuenta = objeto.cuenta;
+            this.total = objeto.total;
+        }
+    }
+    const almacenados = JSON.parse(localStorage.getItem("misCuentas"));
+    const productos = [];
+    for (const objeto of almacenados)
+        productos.push(new Cuenta(objeto));
+
+    console.log(productos[0]);
+    console.log(productos[1]);
+    console.log(productos[2]);
+    console.log(productos.mozo);
+    console.log(productos.mozo);
+    console.log(productos.mesa);
+    console.log(productos.mozo);
+    console.log(productos.mozo);
+    console.log(typeof productos); 
+    
+
+
