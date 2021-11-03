@@ -13,7 +13,7 @@ let mozo = 0;
 let mesa = 0;
 
 
-
+// Click del boton pedido
 hacerPedido.addEventListener("click", respuestaClick2)
 function respuestaClick2() {
     //ELIMINAR EL BOTON DE PEDIDO
@@ -25,6 +25,15 @@ function respuestaClick2() {
     function validarFormulario(e) {
         e.preventDefault();
         let salon = e.target
+
+        // COMO VALIDAR ESTO????????????????
+
+        // if (salon.children[1].value.length == 0 || parseInt(salon.children[1].value) == 0 || parseInt(salon.children[1].value) > 5 || parseInt(salon.children[1].value) < 0) {
+        //     alert("Tiene que ingresar una opcion de id de mozo del 1 al 5");
+        //     return 0;
+        // }
+
+
         mozo = parseInt(salon.children[1].value);
         mesa = parseInt(salon.children[3].value);
     }
@@ -37,7 +46,7 @@ let bebida = 0;
 let cantidadBebida = 0;
 let precioBebida = 0;
 
-// Click del boton pedido
+// Click del boton DE MOZO Y MESA
 let boton = document.getElementById("addLocal");
 boton.addEventListener("click", respuestaClick);
 function respuestaClick() {
