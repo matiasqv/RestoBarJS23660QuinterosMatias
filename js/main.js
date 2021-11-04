@@ -338,7 +338,7 @@ function respuestaClick3() {
 <p>- Propina = $${producto.propina} (% = ${producto.porcentajePropina})</p>
 <p>==========================</p>
 
-<h3><b>Total = $${pedido.total}</b></h3>
+<h3><b>Total = $${producto.total}</b></h3>
 
 <button id="eliminar" class="eliminar">Eliminar</button>`
         cuenta.appendChild(contenedor2);
