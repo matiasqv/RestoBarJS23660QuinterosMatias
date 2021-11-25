@@ -216,17 +216,6 @@ html body div ul a {
   font-size: 1.5em;
 }
 
-.group .container .column .pedido {
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  padding: 0.5em;
-  margin: 0.2em;
-  color: black;
-  font-size: 2em;
-  font-weight: bold;
-}
-
 .group .container .column #pedido {
   position: relative;
   display: inline-block;

@@ -346,3 +346,15 @@ function respuestaClick3() {
         elimina.addEventListener("click", eliminar && actualizar);
     }
 }
+
+
+//Agregamos un botón y un div con jQuery
+$(".btn-mostrar").append('<button id="btn-mostrar1">Mostrar</button>');
+$(".fotos").prepend(`<div id="fotos1" style="height: 100px">
+<img src="multimedia/imagen1.jpeg" alt="" class="gallery--img">
+    <h4>Sorpresa</h4>
+    </div>`);
+//Usamos toggle sobre div1 en respuesta al click del botòn btn1
+$("#btn-mostrar1").click(() => {
+    $("#fotos1").toggle("fast");
+});
