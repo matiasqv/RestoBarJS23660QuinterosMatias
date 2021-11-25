@@ -1,16 +1,13 @@
 
-// Clase 10 Desafío: Segunda Entrega del Proyecto Final
+// Clase 14 Desafío: Tercera Entrega del Proyecto Final
 
 
 //OCULTA EL INGRESO DE MOZO Y MESA
 document.getElementById("local").style.display = "none";
 //AGREGA EL BOTON DE PEDIDO
-let contenedor = document.createElement("hacerPedido");
-contenedor.innerHTML = `<button id="btn-pedido" class="menu__item menu__link pedido">Realice su pedido</button>`;
-hacerPedido.appendChild(contenedor);
-let contenedor2 = document.createElement("recuperarPedido");
-contenedor2.innerHTML = `<button id="btn-recuperCuenta" class="menu__link menu__link pedido">Recuperar última cuenta</button>`;
-recuperarPedido.appendChild(contenedor2);
+$("#hacerPedido").append('<button id="btn-pedido" class="menu__item menu__link pedido">Realice su pedido</button>');
+$("#recuperarPedido").append('<button id="btn-recuperCuenta" class="menu__link menu__link pedido">Recuperar última cuenta</button>');
+
 
 let mozo = 0;
 let mesa = 0;
