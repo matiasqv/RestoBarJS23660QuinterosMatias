@@ -14,23 +14,22 @@ let mesa = 0;
 
 
 // Click del boton pedido
-hacerPedido.addEventListener("click", respuestaClick2)
-function respuestaClick2() {
+$("#hacerPedido").click(()=>{
     //ELIMINAR EL BOTON DE PEDIDO
     hacerPedido.parentNode.removeChild(hacerPedido);
     recuperarPedido.parentNode.removeChild(recuperarPedido);
-    //MUESTRA PARA AGREGAR EL MOZO Y LA MESA
-    document.getElementById("local").style.display = "block";
-    let local = document.getElementById("local");
-    local.addEventListener("submit", validarFormulario);
-    function validarFormulario(e) {
-        e.preventDefault();
-        let salon = e.target
-
-        mozo = parseInt(salon.children[1].value);
-        mesa = parseInt(salon.children[3].value);
-    }
-}
+        //MUESTRA PARA AGREGAR EL MOZO Y LA MESA
+        document.getElementById("local").style.display = "block";
+        let local = document.getElementById("local");
+        local.addEventListener("submit", validarFormulario);
+        function validarFormulario(e) {
+            e.preventDefault();
+            let salon = e.target
+    
+            mozo = parseInt(salon.children[1].value);
+            mesa = parseInt(salon.children[3].value);
+        }
+});
 
 let comida = 0;
 let cantidadComida = 0;
@@ -40,9 +39,8 @@ let cantidadBebida = 0;
 let precioBebida = 0;
 
 // Click del boton DE MOZO Y MESA
-let boton = document.getElementById("addLocal");
-boton.addEventListener("click", respuestaClick);
-function respuestaClick() {
+$("#addlocal").click(()=>{
+
     //OCULTA EL INGRESO DE MOZO Y MESA
     document.getElementById("local").style.display = "none";
 
@@ -187,7 +185,7 @@ function respuestaClick() {
         // CORRE LA FUNCION
         correr()
     }
-}
+});
 
 function correr() {
 
@@ -311,8 +309,7 @@ function guardarCuentaLocalStorage() {
 
 // RECUPERA LA ULTIMA CUENTAS GUARDADA EN EL LOCALSTORAGE
 
-recuperarPedido.addEventListener("click", respuestaClick3)
-function respuestaClick3() {
+    $("#recuperarPedido").click(() => {   
     //ELIMINAR EL BOTON DE PEDIDO
     hacerPedido.parentNode.removeChild(hacerPedido);
     recuperarPedido.parentNode.removeChild(recuperarPedido);
@@ -342,7 +339,7 @@ function respuestaClick3() {
         let elimina = document.getElementById("eliminar");
         elimina.addEventListener("click", eliminar && actualizar);
     }
-}
+});
 
 
 //Agregamos un botón y un div con jQuery
