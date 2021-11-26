@@ -3,7 +3,9 @@
 
 
 //OCULTA EL INGRESO DE MOZO Y MESA
-document.getElementById("local").style.display = "none";
+    $("#local").css({
+        "display": "none",});
+
 //AGREGA EL BOTON DE PEDIDO
 $("#hacerPedido").append('<button id="btn-pedido" class="menu__item menu__link pedido">Realice su pedido</button>');
 $("#recuperarPedido").append('<button id="btn-recuperCuenta" class="menu__link menu__link pedido">Recuperar última cuenta</button>');
@@ -14,21 +16,23 @@ let mesa = 0;
 
 
 // Click del boton pedido
-$("#hacerPedido").click(()=>{
+$("#hacerPedido").click(() => {
     //ELIMINAR EL BOTON DE PEDIDO
-    hacerPedido.parentNode.removeChild(hacerPedido);
-    recuperarPedido.parentNode.removeChild(recuperarPedido);
-        //MUESTRA PARA AGREGAR EL MOZO Y LA MESA
-        document.getElementById("local").style.display = "block";
-        let local = document.getElementById("local");
-        local.addEventListener("submit", validarFormulario);
-        function validarFormulario(e) {
-            e.preventDefault();
-            let salon = e.target
-    
-            mozo = parseInt(salon.children[1].value);
-            mesa = parseInt(salon.children[3].value);
-        }
+    $( "#hacerPedido" ).remove();
+    $( "#recuperarPedido" ).remove();
+    //MUESTRA PARA AGREGAR EL MOZO Y LA MESA
+    // document.getElementById("local").style.display = "block";
+    $("#local").css({
+        "display": "block",});
+    let local = document.getElementById("local");
+    local.addEventListener("submit", validarFormulario);
+    function validarFormulario(e) {
+        e.preventDefault();
+        let salon = e.target
+
+        mozo = parseInt(salon.children[1].value);
+        mesa = parseInt(salon.children[3].value);
+    }
 });
 
 let comida = 0;
@@ -39,7 +43,7 @@ let cantidadBebida = 0;
 let precioBebida = 0;
 
 // Click del boton DE MOZO Y MESA
-$("#addlocal").click(()=>{
+$("#addLocal").click(() => {
 
     //OCULTA EL INGRESO DE MOZO Y MESA
     document.getElementById("local").style.display = "none";
@@ -181,7 +185,7 @@ $("#addlocal").click(()=>{
         }
 
         // ELIMINAR miFormulario
-        miFormulario.parentNode.removeChild(miFormulario);
+        $( "#miFormulario" ).remove();
         // CORRE LA FUNCION
         correr()
     }
@@ -286,9 +290,10 @@ function correr() {
     });
 
     guardarCuentaLocalStorage()
-
-    let elimina = document.getElementById("eliminar");
-    elimina.addEventListener("click", eliminar && actualizar);
+    $("#eliminar").click(() => {
+        eliminar()
+        actualizar()
+    });
 };
 
 function eliminar() {
@@ -309,14 +314,13 @@ function guardarCuentaLocalStorage() {
 
 // RECUPERA LA ULTIMA CUENTAS GUARDADA EN EL LOCALSTORAGE
 
-    $("#recuperarPedido").click(() => {   
+$("#recuperarPedido").click(() => {
     //ELIMINAR EL BOTON DE PEDIDO
-    hacerPedido.parentNode.removeChild(hacerPedido);
-    recuperarPedido.parentNode.removeChild(recuperarPedido);
+    $( "#hacerPedido" ).remove();
+    $( "#recuperarPedido" ).remove();
 
 
     let guardado = JSON.parse(localStorage.getItem('misCuentas'));
-    console.log(guardado);
     for (const producto of guardado) {
         let contenedor2 = document.createElement("div");
         contenedor2.innerHTML = `
@@ -335,9 +339,11 @@ function guardarCuentaLocalStorage() {
 <h3><b>Total = $${producto.total}</b></h3>
 
 <button id="eliminar" class="eliminar">Eliminar</button>`
-        cuenta.appendChild(contenedor2);
-        let elimina = document.getElementById("eliminar");
-        elimina.addEventListener("click", eliminar && actualizar);
+        $("#cuenta").append(contenedor2);
+        $("#eliminar").click(() => {
+            eliminar()
+            actualizar()
+        });
     }
 });
 
